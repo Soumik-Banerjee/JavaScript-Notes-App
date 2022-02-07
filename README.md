@@ -4,11 +4,12 @@ This is a note taking application it use localstorage to store notes data.
 
 ## Highlighted Features
 
-* Note Heading -  You can add note headings for individual notes.
+* Use localstorage to store notes
+* Note Heading
 * Note Description
 * Delete Individual notes
 * Delete All notes
-* Multi column view ( 1 - 6 columns )
+* Multi-column view ( 1 - 6 columns )
 * Responsive design
 * Search functionality
 * Time stamp
