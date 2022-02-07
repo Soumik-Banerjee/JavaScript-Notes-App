@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z - Notes</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Code For Delete Dialog Box -->
+    <div id="delete_dialog_box" class="b-none">
+        <div>
+            <p>Are you sure? If you delete all your notes, <span>it can not be undone !</span></p>
+            <div>
+                <button id="delBtnYes" class="b-none">Yes</button>
+                <button id="delBtnNo" class="b-none">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code For NAVBAR -->
+    <nav class="flex flex-row align-center justify-between">
+        <div class="nav__logo">{ Z-notes }</div>
+        <div class="nav__right flex flex-row align-center justify-center">
+            <button id="showMenuBtn" class="flex flex-row align-center justify-center b-none">
+                <svg class="svg-icon" viewBox="0 0 20 20">
+                    <path fill="none" d="M7.228,11.464H1.996c-0.723,0-1.308,0.587-1.308,1.309v5.232c0,0.722,0.585,1.308,1.308,1.308h5.232
+                        c0.723,0,1.308-0.586,1.308-1.308v-5.232C8.536,12.051,7.95,11.464,7.228,11.464z M7.228,17.351c0,0.361-0.293,0.654-0.654,0.654
+                        H2.649c-0.361,0-0.654-0.293-0.654-0.654v-3.924c0-0.361,0.292-0.654,0.654-0.654h3.924c0.361,0,0.654,0.293,0.654,0.654V17.351z
+                         M17.692,11.464H12.46c-0.723,0-1.308,0.587-1.308,1.309v5.232c0,0.722,0.585,1.308,1.308,1.308h5.232
+                        c0.722,0,1.308-0.586,1.308-1.308v-5.232C19,12.051,18.414,11.464,17.692,11.464z M17.692,17.351c0,0.361-0.293,0.654-0.654,0.654
+                        h-3.924c-0.361,0-0.654-0.293-0.654-0.654v-3.924c0-0.361,0.293-0.654,0.654-0.654h3.924c0.361,0,0.654,0.293,0.654,0.654V17.351z
+                         M7.228,1H1.996C1.273,1,0.688,1.585,0.688,2.308V7.54c0,0.723,0.585,1.308,1.308,1.308h5.232c0.723,0,1.308-0.585,1.308-1.308
+                        V2.308C8.536,1.585,7.95,1,7.228,1z M7.228,6.886c0,0.361-0.293,0.654-0.654,0.654H2.649c-0.361,0-0.654-0.292-0.654-0.654V2.962
+                        c0-0.361,0.292-0.654,0.654-0.654h3.924c0.361,0,0.654,0.292,0.654,0.654V6.886z M17.692,1H12.46c-0.723,0-1.308,0.585-1.308,1.308
+                        V7.54c0,0.723,0.585,1.308,1.308,1.308h5.232C18.414,8.848,19,8.263,19,7.54V2.308C19,1.585,18.414,1,17.692,1z M17.692,6.886
+                        c0,0.361-0.293,0.654-0.654,0.654h-3.924c-0.361,0-0.654-0.292-0.654-0.654V2.962c0-0.361,0.293-0.654,0.654-0.654h3.924
+                        c0.361,0,0.654,0.292,0.654,0.654V6.886z"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="nav__features flex flex-column align-center" tabindex="0">
+            <li>
+                <div id="searchBoxContainer" class="flex flex-row align-center justify-center b-none">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path fill="none" d="M19.129,18.164l-4.518-4.52c1.152-1.373,1.852-3.143,1.852-5.077c0-4.361-3.535-7.896-7.896-7.896
+                            c-4.361,0-7.896,3.535-7.896,7.896s3.535,7.896,7.896,7.896c1.934,0,3.705-0.698,5.078-1.853l4.52,4.519
+                            c0.266,0.268,0.699,0.268,0.965,0C19.396,18.863,19.396,18.431,19.129,18.164z M8.567,15.028c-3.568,0-6.461-2.893-6.461-6.461
+                            s2.893-6.461,6.461-6.461c3.568,0,6.46,2.893,6.46,6.461S12.135,15.028,8.567,15.028z">
+                        </path>
+                    </svg>
+                    <input type="text" placeholder="Search here" id="searchBox" class="b-none">
+                </div>
+            </li>
+            <li><button id="deleteAll">Delete All Notes</button></li>
+            <li class="showColumns flex flex-row align-center justify-center">
+                <button class="columnBtn" value="calc(100% - 20px)">1 column</button>
+                <button class="columnBtn" value="calc(50% - 20px)">2 column</button>
+                <button class="columnBtn" value="calc(33.33% - 20px)">3 column</button>
+                <button class="columnBtn" value="calc(25% - 20px)">4 column</button>
+                <button class="columnBtn" value="calc(20% - 20px)">5 column</button>
+                <button class="columnBtn" value="calc(16.66% - 20px)">6 column</button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Note Container -->
+    <main class="flex flex-column align-center">
+        <!----- 
+            Note Input Area
+         ----->
+        <div class="input flex flex-column align-center justify-center">
+            <h1>Welcome to ZNotes</h1>
+            <input type="text" id="inpHead" placeholder="Note Heading">
+            <textarea id="inpDesc" placeholder="Note Describtion"></textarea>
+            <button type="button" id="btn" class="b-none">Add Note</button>
+        </div>
+        <!----- 
+            Note Output Area
+         ----->
+        <div class="output flex align-center justify-center" id="notesCont">
+            <!-- <div class="notes">
+                <h4 class="notes__heading">SAMPEL NOTE</h4>
+                <div class="notes__description">This is a "Sampel Note"***.</div>
+                <button>Delete Note</button>
+            </div> -->
+        </div>
+
+    </main>
+
+
+    <!-- My Scripts -->
+    <script src="./app.js"></script>
+    <script src="./uifunctions.js"></script>
+</body>
+
+</html>

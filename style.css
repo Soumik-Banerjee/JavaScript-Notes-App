@@ -1,0 +1,342 @@
+/* -----
+CSS Reset
+----- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+/* -----
+Variables
+-----*/
+:root{
+    --color-red: #f23838;
+    --color-green: #34a841;
+    --color-blue: #4691f6;
+    --color-white: #eee;
+    --white-182: rgb(182, 182, 182);
+    --color-dark-49: rgb(49, 49, 49);
+    --color-dark-80: rgb(80, 80, 80);
+    --borderRadius: 3px;
+    --transition-duration: 200ms;
+}
+
+
+/* -----
+UTILLITY CLASSES
+----- */
+.flex{
+    display: flex;
+}
+.flex-row{
+    flex-direction: row;
+}
+.flex-column{
+    flex-direction: column;
+}
+.align-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.b-none{
+    border: none;
+}
+
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+    width: 1em;
+  height: 1em;
+}
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: var(--color-blue);
+}
+.svg-icon circle {
+  stroke: var(--color-blue);
+  stroke-width: 1;
+}
+
+/* -----
+Body
+----- */
+body{
+    background-color: var(--color-white);
+}
+
+/* -----
+Navbar
+----- */
+nav{
+    position: fixed;
+    top: 0;
+    padding: 5px;
+    height: 50px;
+    width: 100%;
+    background-color: var(--color-dark-49);
+}
+
+.nav__logo{
+    font-family: monospace;
+    color: var(--color-white);
+    font-family: 900;
+    font-size: 1.2rem;
+}
+
+/*.nav__right{ }*/
+
+#searchBoxContainer{
+    padding: 5px;
+    border-radius: 3px;
+    background-color: var(--color-dark-80);
+    outline: none;
+    color: var(--color-white);
+}
+
+#searchBoxContainer svg path{
+    fill: var(--color-white);
+}
+
+#searchBox{
+    margin-left: 5px;
+    background-color: var(--color-dark-80);
+    outline: none;
+    color: var(--color-white);
+    font-size: 16px;
+}
+
+#showMenuBtn{
+    background-color: transparent;
+    padding: 4px;
+    cursor: pointer;
+    transition: var(--transition-duration);
+    margin-left: 5px;
+}
+#showMenuBtn:hover{
+    background-color: rgba(238, 238, 238, 0.233);
+}
+
+#showMenuBtn svg{
+    font-size: 26px;
+}
+
+#showMenuBtn svg path{
+    fill: var(--color-white);
+}
+
+.nav__features{
+    position: fixed;
+    top: 75px;
+    right: 0;
+    list-style: none;
+    justify-content: flex-start;
+    background-color: var(--color-dark-49);
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition-duration);
+    z-index: 0;
+}
+
+.nav__features li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 10px;
+}
+
+.showColumns{
+    flex-wrap: wrap;
+    width: 140px;
+}
+
+.showColumns button{
+    width: 68px;
+    margin: 1px;
+}
+
+
+#deleteAll{
+    color: white;
+    border: 1px solid var(--color-red);
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 3px;
+    transition: 200ms;
+}
+
+#deleteAll:hover{
+    
+    border: 1px solid var(--color-red);
+    background-color: var(--color-red);
+}
+
+/* -----Main----- */
+main{
+    margin-top: 50px;
+}
+
+/* -----Input, Text Area------ */
+.input{
+    border: 1px solid var(--white-182);             
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.input input, .input textarea{
+    width: clamp(200px, 80%, 80%);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 3px;
+    outline: none;
+    background: #fff;
+    border: 1px solid #cacaca;
+}
+
+.input textarea{
+    min-height: 100px;
+}
+
+.input input{
+    font-weight: 900;
+}
+
+.input #btn{
+    background: rgb(18, 126, 226);
+    padding: 5px;
+    font-size: 1rem;
+    color: var(--color-white);
+    border-radius: 3px;
+    transition: 200ms;
+    margin-top: 5px;
+}
+
+.input #btn:hover{
+    background: rgba(0, 0, 0, 0.445);
+    color: rgb(0, 0, 0);
+}
+
+/* -----Output Area----- */
+.output{
+    width: 98%;
+    flex-wrap: wrap;
+}
+
+.notes{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--white-182);
+    min-width: 200px;
+    width: inherit;
+    border-radius: 3px;
+}
+
+.notes__heading{
+    margin-bottom: 10px;
+}
+
+.notes__description{
+    color: #515151;
+    margin-bottom: 10px;
+}
+
+.notes button{
+    background-color: var(--color-red);
+    padding: 3px;
+    color: white;
+    border-radius: 3px;
+    border: none;
+}
+
+
+/* -----DELETE DIALOG BOX----- */
+#delete_dialog_box{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    transition: all var(--transition-duration);
+    z-index: 1;
+}
+
+#delete_dialog_box div:nth-child(1){
+    height: auto;
+    width: 90%;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: var(--borderRadius);
+    box-shadow: 0 0 50px 5px #000;
+}
+
+#delete_dialog_box p{
+    font-size: clamp(1rem, 2rem, 3rem);
+    margin-bottom: 10px;
+}
+
+#delete_dialog_box span{
+    font-weight: 900;
+    color: var(--color-red);
+}
+
+#delete_dialog_box button{
+    padding: 3px 10px;
+    border-radius: var(--borderRadius);
+    color: var(--color-white);
+    font-weight: 800;
+    transition: var(--transition-duration);
+    cursor: pointer;
+}
+
+#delete_dialog_box button:nth-child(1){
+    background-color: var(--color-red);
+}
+
+#delete_dialog_box button:nth-child(1):hover{
+    color: var(--color-red);
+    background-color: rgb(214, 214, 214);
+}
+
+#delete_dialog_box button:nth-child(2){
+    background-color: var(--color-green);
+}
+
+#delete_dialog_box button:nth-child(2):hover{
+    background-color: rgb(214, 214, 214);
+    color: var(--color-green);
+}
+
+.note__number{
+    display: inline-block;
+    padding: 0 3px;
+    border: 1px solid var(--white-182);
+    border-radius: var(--borderRadius);
+    color: var(--white-182);
+    font-weight: 300;
+    margin-right: 5px;
+}
+
+.date-delete-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.date-container{
+    color: var(--white-182);
+}
