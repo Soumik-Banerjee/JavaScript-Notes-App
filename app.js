@@ -1,4 +1,4 @@
-// console.log('testing');
+console.log('Welcome to Z-notes, a JavaScript notes application');
 displayNotes()
 
 const inpHead = document.getElementById('inpHead');
@@ -38,10 +38,6 @@ btn.addEventListener('click', function () {
         inpDesc.value = '';
         displayNotes();
     }
-    //----LOGS----
-    // console.log('btn pressed');
-    // console.log(JSON.parse(localStorage.getItem('database')));
-    // console.log(obj);
 })
 
 
